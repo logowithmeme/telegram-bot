@@ -16,7 +16,7 @@ ADMIN_ID = 8006671023
 CHANNEL_ID = -1002644573835
 PLAN_PRICE = 499
 UPI_ID = "Q553984602@ybl"
-QR_PATH = "qr.jpg"  # Must be in same folder as bot.py
+QR_PATH = "C:/Users/jhade/TELBOT/qr.jpg"  # Must be in same folder as bot.py
 
 pending_payments = {}
 pending_support = set()
