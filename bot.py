@@ -4,7 +4,10 @@ nest_asyncio.apply()
 import pytz
 import asyncio
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ChatInviteLink, ChatMemberUpdated
-from telegram.ext import (ApplicationBuilder, CommandHandler, MessageHandler, CallbackQueryHandler, ContextTypes, filters, ChatMemberHandler)
+from telegram.ext import (
+    ApplicationBuilder, CommandHandler, MessageHandler,
+    CallbackQueryHandler, ContextTypes, filters, ChatMemberHandler
+)
 from datetime import datetime, timedelta
 
 # === CONFIGURATION ===
@@ -13,11 +16,11 @@ ADMIN_ID = 8006671023
 CHANNEL_ID = -1002644573835
 PLAN_PRICE = 499
 UPI_ID = "Q553984602@ybl"
-QR_PATH = "C:/Users/jhade/TELBOT/qr.jpg"
+QR_PATH = "qr.jpg"  # Must be in same folder as bot.py
 
 pending_payments = {}
 pending_support = set()
-user_invite_links = {}  # user_id: invite_link_url
+user_invite_links = {}
 
 # === /start COMMAND ===
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -56,10 +59,9 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
                     ),
                     parse_mode="Markdown"
                 )
-            print("✅ Buy Now: QR sent successfully")
         except Exception as e:
             await query.message.reply_text("⚠️ Failed to send QR image. Please try again.")
-            print(f"❌ Buy Now error: {e}")
+            print(f"❌ Buy Now QR error: {e}")
 
     elif query.data == "support":
         pending_support.add(query.from_user.id)
