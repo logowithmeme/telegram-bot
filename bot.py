@@ -13,7 +13,7 @@ ADMIN_ID = 8006671023
 CHANNEL_ID = -1002644573835
 PLAN_PRICE = 499
 UPI_ID = "Q553984602@ybl"
-QR_FILE_ID = "AgACAgUAAxkBAAIBiGgHo-ANLSbM3lbZo4MM1GFWcd_-AAJEvzEbB4RAVDjWq-oYSi-YAQADAgADeQADNgQ"
+QR_URL = "https://i.postimg.cc/T3x5g8sN/Chat-GPT-Image-Apr-22-2025-04-08-46-PM.png"
 
 pending_payments = {}
 pending_support = set()
@@ -48,11 +48,16 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         try:
             await context.bot.send_photo(
                 chat_id=query.message.chat.id,
-                photo=QR_FILE_ID,
+                photo=QR_URL,
                 caption=(
-                    f"✅ Please pay *₹499* to this UPI ID:\n`{UPI_ID}`\n\n"
+                    f"✅ Please pay *₹{PLAN_PRICE}* to this UPI ID:
+`{UPI_ID}`
+
+"
                     f"📸 After payment, send a screenshot here to continue."
                 ),
+                parse_mode="Markdown"
+            ),
                 parse_mode="Markdown"
             )
         except Exception as e:
