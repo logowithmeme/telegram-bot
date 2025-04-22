@@ -4,10 +4,7 @@ nest_asyncio.apply()
 import pytz
 import asyncio
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ChatInviteLink, ChatMemberUpdated
-from telegram.ext import (
-    ApplicationBuilder, CommandHandler, MessageHandler,
-    CallbackQueryHandler, ContextTypes, filters, ChatMemberHandler
-)
+from telegram.ext import (ApplicationBuilder, CommandHandler, MessageHandler, CallbackQueryHandler, ContextTypes, filters, ChatMemberHandler)
 from datetime import datetime, timedelta
 
 # === CONFIGURATION ===
@@ -16,11 +13,11 @@ ADMIN_ID = 8006671023
 CHANNEL_ID = -1002644573835
 PLAN_PRICE = 499
 UPI_ID = "Q553984602@ybl"
-QR_PATH = "C:/Users/jhade/TELBOT/qr.jpg"  # Must be in same folder as bot.py
+QR_FILE_ID = "AgACAgUAAxkBAAIBiGgHo-ANLSbM3lbZo4MM1GFWcd_-AAJEvzEbB4RAVDjWq-oYSi-YAQADAgADeQADNgQ"
 
 pending_payments = {}
 pending_support = set()
-user_invite_links = {}
+user_invite_links = {}  # user_id: invite_link_url
 
 # === /start COMMAND ===
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -33,9 +30,9 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
         f"🎓 *CODING NOTES Membership Access*\n\n"
         f"👁️ Want to see what’s inside? Click *View Demo* below.\n\n"
         f"💵 *PRICE:*\n"
-        f"━━━━━━━━━━━━━━━\n"
-        f"🔥🔥🔥  *₹{PLAN_PRICE} ONLY*  🔥🔥🔥\n"
-        f"━━━━━━━━━━━━━━━\n\n"
+        f"━━━━━━━━━━━━━━\n"
+        f"🔥🔥🔥  *₹499 ONLY*  🔥🔥🔥\n"
+        f"━━━━━━━━━━━━━━\n\n"
         f"📚 Get lifetime access to exclusive notes, projects, and more!",
         parse_mode="Markdown",
         reply_markup=InlineKeyboardMarkup(keyboard)
@@ -49,19 +46,18 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if query.data == "buy_plan":
         await query.message.reply_text("🔄 Generating your QR code...")
         try:
-            with open(QR_PATH, "rb") as qr_img:
-                await context.bot.send_photo(
-                    chat_id=query.message.chat.id,
-                    photo=qr_img,
-                    caption=(
-                        f"✅ Please pay *₹{PLAN_PRICE}* to this UPI ID:\n`{UPI_ID}`\n\n"
-                        f"📸 After payment, send a screenshot here to continue."
-                    ),
-                    parse_mode="Markdown"
-                )
+            await context.bot.send_photo(
+                chat_id=query.message.chat.id,
+                photo=QR_FILE_ID,
+                caption=(
+                    f"✅ Please pay *₹499* to this UPI ID:\n`{UPI_ID}`\n\n"
+                    f"📸 After payment, send a screenshot here to continue."
+                ),
+                parse_mode="Markdown"
+            )
         except Exception as e:
             await query.message.reply_text("⚠️ Failed to send QR image. Please try again.")
-            print(f"❌ Buy Now QR error: {e}")
+            print(f"❌ Buy Now error: {e}")
 
     elif query.data == "support":
         pending_support.add(query.from_user.id)
@@ -84,14 +80,13 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 text=(
                     "✅ *Payment Verified!*\n\n"
                     "💌 Welcome to *CODING NOTES* 📚\n"
-                    "🎁 Here’s your private one-time join link:\n"
+                    "🏱 Here’s your private one-time join link:\n"
                     f"{invite_link.invite_link}\n\n"
                     "⚠️ Link expires after 1 use or 5 minutes.\n"
                     "🔍 If the link doesn’t work, search: *CODING NOTES*"
                 ),
                 parse_mode="Markdown"
             )
-
             await query.message.reply_text("✅ Access granted! User received 1-time link.")
 
         except Exception as e:
@@ -113,6 +108,7 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def handle_photo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.message.from_user
     photo_file = update.message.photo[-1].file_id
+    print("✅ QR File ID:", photo_file)
     pending_payments[user.id] = photo_file
     keyboard = [
         [
