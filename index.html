@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kartik Jhade | Digital Portfolio 2050</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add this in the <head> section, before your own script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="animated-background"></div>
+    <div class="peaks-overlay"></div>
+    
+    <!-- Add this to the header section, around line 20 -->
+    <header>
+        <div class="logo">KJ<span class="blink">_</span></div>
+        <div class="menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1 class="glitch-text" data-text="JHADE KARTIK">JHADE KARTIK</h1>
+                <h2 class="subtitle">Software Engineer <span class="highlight">|</span> Python Developer <span class="highlight">|</span> Problem Solver</h2>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn primary-btn">View Projects</a>
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                </div>
+            </div>
+            <div id="hero-canvas"></div>
+        </section>
+
+        <!-- Moved About section up -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="image-container">
+                            <img src="profile.jpg" alt="Jhade Kartik">
+                            <div class="image-glitch"></div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <div class="objective-box">
+                            <h3 class="objective-title">OBJECTIVE</h3>
+                            <p>Aspiring Full Stack Software Engineer seeking to join HENNGE's Global Internship Program to contribute to innovative cloud-based solutions, expand technical skills in Python and TypeScript, and thrive in a multicultural, collaborative environment.</p>
+                        </div>
+                        <p>Hello! I'm Jhade Kartik, a passionate and creative full stack developer with expertise in Python, JavaScript, and modern web technologies. I specialize in creating efficient, scalable solutions to complex problems with a focus on innovative user experiences.</p>
+                        <p>With a strong foundation in algorithms and data structures, I've successfully completed challenging coding tests and built several impactful projects that demonstrate my technical versatility and problem-solving abilities.</p>
+                        
+                        <div class="skills-overview">
+                            <h3>Technical Expertise:</h3>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Flask</span>
+                                <span class="skill-tag">Firebase</span>
+                                <span class="skill-tag">Tailwind CSS</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">AWS (EC2, S3)</span>
+                                <span class="skill-tag">Railway</span>
+                                <span class="skill-tag">Vercel</span>
+                                <span class="skill-tag">GitHub Actions</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Find this section around line 90 and update it -->
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="3">3</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="0">0</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="4">4</span>
+                                <span class="stat-label">Languages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Moved Education section to the top -->
+        <section id="education" class="education-section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>B.Tech - University School of Automation & Robotics (USAR)</h3>
+                            <p class="timeline-date">Expected: June 2026 | Delhi</p>
+                            <div class="timeline-details">
+                                <p><strong>CGPA:</strong> 7.3 (No Backlogs)</p>
+                                <p><strong>Current Year:</strong> 3rd Year, 2nd Semester</p>
+                                <p><strong>Admission:</strong> Cleared JEE Mains and secured a seat at USAR</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>12th Grade - Visakha Dairy Jr. College</h3>
+                            <p class="timeline-date">July 2021 | Vizag</p>
+                            <div class="timeline-details">
+                                <p><strong>Marks:</strong> 909 (Intermediate Board)</p>
+                                <p><strong>Achievement:</strong> Studied at a Defence College and successfully cleared the NDA exam</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3>10th Grade - SR Prime School</h3>
+                            <p class="timeline-date">May 2019 | Adilabad</p>
+                            <div class="timeline-details">
+                                <p><strong>CGPA:</strong> 9.2 (Board of Secondary Education)</p>
+                                <p><strong>Achievements:</strong></p>
+                                <ul>
+                                    <li>2nd Rank in NASO (National Astronomy & Science Olympiad) – School Level</li>
+                                    <li>2nd Rank in Olympiad Competition</li>
+                                    <li>Participated in multiple competitive exams and national-level contests</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fixed projects section -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="filter-container">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="react">React</button>
+                    <button class="filter-btn" data-filter="flask">Flask</button>
+                    <button class="filter-btn" data-filter="ai">AI</button>
+                    <button class="filter-btn" data-filter="firebase">Firebase</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Anganwadi AI logo -->
+                            <img src="anganwadi-ai.jpg" alt="ANGANWADHI AI">
+                        </div>
+                        <div class="project-info">
+                            <h3>ANGANWADHI AI — Education System</h3>
+                            <p>AI-Powered platform that converts textbook PDFs into animated educational videos using GPT-4, ElevenLabs, DALL·E, and MoviePy.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Flask</span>
+                                <span class="tag">Celery</span>
+                                <span class="tag">AI</span>
+                            </div>
+                            <a href="https://github.com/jhadekartik/anganwadhi-ai" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Updated to use the Namakamu image -->
+                            <img src="namakamu.jpg" alt="NAMAKAMU">
+                        </div>
+                        <div class="project-info">
+                            <h3>NAMAKAMU — Private Chat App</h3>
+                            <p>Secure chat platform using Firebase and React allowing two-person private rooms that expire after 24 hours with real-time messaging.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Firebase</span>
+                                <span class="tag">Real-time</span>
+                            </div>
+                            <a href="https://github.com/jhadekartik/namakamu" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <!-- Learn Without Teacher logo -->
+                            <img src="lwt.jpg" alt="LEARN WITHOUT TEACHER">
+                        </div>
+                        <div class="project-info">
+                            <h3>LEARN WITHOUT TEACHER (LWT)</h3>
+                            <p>Zero-cost, AI-based competitive exam portal for Indian students with daily topic-wise content and instant doubt solving using GPT-4.</p>
+                            <div class="project-tags">
+                                <span class="tag">React</span>
+                                <span class="tag">Tailwind</span>
+                                <span class="tag">GPT-4</span>
+                            </div>
+                            <a href="https://github.com/jhadekartik/lwt" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rest of the sections remain the same -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <h2 class="section-title">Internship Experience</h2>
+                <div class="experience-container">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <h3>USAR Research Intern</h3>
+                            <span class="experience-date">June 2024 – July 2024 | Delhi</span>
+                        </div>
+                        <div class="experience-content">
+                            <ul class="experience-list">
+                                <li>Worked on Power Grid Management using Digital Twin Technology under professor guidance</li>
+                                <li>Gained expertise in real-time monitoring, simulation, and optimization of power systems</li>
+                                <li>Developed AI-driven solutions for energy management and automation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add a competitions section -->
+        <section id="competitions" class="competitions-section">
+            <div class="container">
+                <h2 class="section-title">Competitions & Events</h2>
+                <div class="competitions-container">
+                    <div class="competition-item">
+                        <i class="fas fa-trophy"></i>
+                        <div class="competition-content">
+                            <p>Regular participant in Indian government tech competitions & hackathons</p>
+                        </div>
+                    </div>
+                    <div class="competition-item">
+                        <i class="fas fa-globe-asia"></i>
+                        <div class="competition-content">
+                            <p>Engaged in Japanese technology expos & innovation events in Delhi</p>
+                        </div>
+                    </div>
+                    <div class="competition-item">
+                        <i class="fas fa-laptop-code"></i>
+                        <div class="competition-content">
+                            <p>Attend technical workshops and competitions every weekend to stay updated</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Add a languages and hobbies section -->
+        <section id="interests" class="interests-section">
+            <div class="container">
+                <h2 class="section-title">Languages & Interests</h2>
+                <div class="interests-container">
+                    <div class="languages-container">
+                        <h3 class="subsection-title">Languages</h3>
+                        <div class="language-items">
+                            <div class="language-item">
+                                <span class="language-name">Telugu</span>
+                                <span class="language-level">Highly Proficient</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">Hindi</span>
+                                <span class="language-level">Highly Proficient</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">English</span>
+                                <span class="language-level">Highly Proficient</span>
+                            </div>
+                            <div class="language-item">
+                                <span class="language-name">Marathi</span>
+                                <span class="language-level">Highly Proficient</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hobbies-container">
+                        <h3 class="subsection-title">Hobbies & Interests</h3>
+                        <div class="hobby-items">
+                            <div class="hobby-item">
+                                <i class="fas fa-book"></i>
+                                <div class="hobby-content">
+                                    <h4>Reading & Writing</h4>
+                                    <p>Passion for hacking books & cybersecurity research</p>
+                                </div>
+                            </div>
+                            <div class="hobby-item">
+                                <i class="fas fa-robot"></i>
+                                <div class="hobby-content">
+                                    <h4>Building & Creating</h4>
+                                    <p>Love to experiment with robotics, AI, and automation</p>
+                                </div>
+                            </div>
+                            <div class="hobby-item">
+                                <i class="fas fa-code"></i>
+                                <div class="hobby-content">
+                                    <h4>Creative Web Development</h4>
+                                    <p>Passionate about creating innovative, futuristic web experiences</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Update the about section to include your objective -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-image">
+                        <div class="image-container">
+                            <img src="profile.jpg" alt="Jhade Kartik">
+                            <div class="image-glitch"></div>
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <div class="objective-box">
+                            <h3 class="objective-title">OBJECTIVE</h3>
+                            <p>Aspiring Full Stack Software Engineer seeking to join HENNGE's Global Internship Program to contribute to innovative cloud-based solutions, expand technical skills in Python and TypeScript, and thrive in a multicultural, collaborative environment.</p>
+                        </div>
+                        <p>Hello! I'm Jhade Kartik, a passionate and creative full stack developer with expertise in Python, JavaScript, and modern web technologies. I specialize in creating efficient, scalable solutions to complex problems with a focus on innovative user experiences.</p>
+                        <p>With a strong foundation in algorithms and data structures, I've successfully completed challenging coding tests and built several impactful projects that demonstrate my technical versatility and problem-solving abilities.</p>
+                        
+                        <div class="skills-overview">
+                            <h3>Technical Expertise:</h3>
+                            <div class="skills-tags">
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">TypeScript</span>
+                                <span class="skill-tag">React.js</span>
+                                <span class="skill-tag">Node.js</span>
+                                <span class="skill-tag">Flask</span>
+                                <span class="skill-tag">Firebase</span>
+                                <span class="skill-tag">Tailwind CSS</span>
+                                <span class="skill-tag">MongoDB</span>
+                                <span class="skill-tag">AWS (EC2, S3)</span>
+                                <span class="skill-tag">Railway</span>
+                                <span class="skill-tag">Vercel</span>
+                                <span class="skill-tag">GitHub Actions</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="5">0</span>
+                                <span class="stat-label">Projects Completed</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="3">0</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="4">0</span>
+                                <span class="stat-label">Languages</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-name">Python</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">JavaScript</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Java</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="75"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Frameworks & Libraries</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-name">React</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="85"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Django</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="80"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Flask</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="85"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>Tools & Technologies</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">
+                                <div class="skill-name">Git</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="90"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">Docker</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="skill-name">AWS</div>
+                                <div class="skill-bar">
+                                    <div class="skill-level" data-level="70"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:jhadekartik@gmail.com">jhadekartik@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="https://github.com/jhadekartik" target="_blank">github.com/jhadekartik</a>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="#" target="_blank">linkedin.com/in/kartikjhade</a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <label for="email">Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                            <label for="message">Your Message</label>
+                        </div>
+                        <button type="submit" class="btn primary-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">KJ<span class="blink">_</span></div>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Kartik Jhade. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Around line 523, replace the duplicate about section with this script tag -->
+    <script src="fix-stats.js"></script>
+</body>
+</html>
